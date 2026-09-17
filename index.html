@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Didi 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Georgia,"Segoe UI",sans-serif;
+    overflow:hidden;
+}
+
+.scene{
+    display:none;
+    min-height:100vh;
+    width:100%;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    position:relative;
+}
+
+.scene.active{
+    display:flex;
+    animation:fade .8s ease;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:scale(1.04)}
+    to{opacity:1;transform:scale(1)}
+}
+
+h1{
+    font-size:clamp(38px,7vw,65px);
+    color:#c94f7c;
+}
+
+h2{
+    font-size:clamp(30px,5vw,48px);
+    color:#c94f7c;
+}
+
+p{
+    color:#75465b;
+    font-size:18px;
+    line-height:1.7;
+    margin:15px 0 25px;
+}
+
+button{
+    border:0;
+    border-radius:30px;
+    padding:15px 28px;
+    background:#d85b88;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    box-shadow:0 8px 25px #9b4b6c40;
+}
+
+button:hover{
+    transform:scale(1.06);
+}
+
+
+/* 1 */
+#s1{
+    background:linear-gradient(135deg,#ffd8e8,#fff5f9);
+}
+
+
+/* 2 */
+#s2{
+    background:radial-gradient(circle,#292330,#08070d 75%);
+    color:white;
+}
+
+#s2 h2,#s2 p{
+    color:#ffe8f2;
+}
+
+.moon{
+    position:absolute;
+    top:12%;
+    right:15%;
+    font-size:80px;
+    animation:float 3s infinite;
+}
+
+@keyframes float{
+    50%{transform:translateY(-12px)}
+}
+
+
+/* 3 */
+#s3{
+    background:linear-gradient(135deg,#ffd5e5,#fff0f6);
+}
+
+.banner{
+    position:absolute;
+    top:12%;
+    font-size:clamp(20px,5vw,40px);
+    letter-spacing:5px;
+    font-weight:bold;
+    color:#c94f7c;
+    animation:drop 1s;
+}
+
+.balloons{
+    position:absolute;
+    top:25%;
+    font-size:60px;
+    animation:up 1.2s;
+}
+
+.floor{
+    position:absolute;
+    bottom:8%;
+    font-size:90px;
+    animation:pop .9s;
+}
+
+@keyframes drop{
+    from{transform:translateY(-100px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+@keyframes up{
+    from{transform:translateY(150px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+@keyframes pop{
+    from{transform:scale(.4);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+
+/* 4 */
+#s4{
+    background:linear-gradient(135deg,#ffe0ec,#fff7fa);
+}
+
+.card{
+    background:#ffffffdf;
+    padding:40px 30px;
+    border-radius:35px;
+    max-width:650px;
+    box-shadow:0 20px 70px #9b4b6c30;
+}
+
+.cake{
+    font-size:100px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-15px)}
+}
+
+.popmsg{
+    display:inline-block;
+    background:white;
+    color:#9b4b6c;
+    padding:13px 20px;
+    border-radius:20px;
+    margin:10px;
+}
+
+
+/* 5 */
+#s5{
+    background:linear-gradient(135deg,#ffd7e6,#fff3f8);
+}
+
+.bigcake{
+    font-size:150px;
+    cursor:pointer;
+    margin:25px;
+    animation:bounce 2s infinite;
+}
+
+.bigcake.cut{
+    animation:cut .8s forwards;
+}
+
+@keyframes cut{
+    50%{transform:scale(1.15)}
+    100%{transform:scale(1.05) rotate(-5deg)}
+}
+
+#cutmsg{
+    display:block;
+    color:#9b4b6c;
+    font-size:20px;
+}
+
+
+/* 6 */
+#s6{
+    background:radial-gradient(circle,#4b315b,#160e22 75%);
+}
+
+#s6 h2,#s6 p{
+    color:#ffe8f2;
+}
+
+.sparkle{
+    font-size:80px;
+    animation:float 2s infinite;
+}
+
+
+/* 7 */
+#s7{
+    background:linear-gradient(135deg,#ffdbea,#fff4f8);
+}
+
+.kitty{
+    position:relative;
+}
+
+.cat{
+    font-size:140px;
+    animation:dance .5s infinite alternate;
+}
+
+.gift{
+    font-size:70px;
+    margin-top:-25px;
+    animation:gift .7s infinite alternate;
+}
+
+@keyframes dance{
+    from{transform:rotate(-8deg)}
+    to{transform:rotate(8deg) translateY(-10px)}
+}
+
+@keyframes gift{
+    to{transform:translateY(-8px) rotate(4deg)}
+}
+
+
+/* 8 */
+#s8{
+    background:linear-gradient(135deg,#ffe5ef,#fff7fa);
+}
+
+.cards{
+    max-width:850px;
+}
+
+.grid{
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin:30px 0 20px;
+}
+
+.wishcard{
+    width:190px;
+    height:220px;
+    perspective:1000px;
+    cursor:pointer;
+}
+
+.inner{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:.7s;
+}
+
+.wishcard.flipped .inner{
+    transform:rotateY(180deg);
+}
+
+.front,.back{
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:22px;
+    box-shadow:0 12px 32px #9b4b6c25;
+}
+
+.front{
+    background:linear-gradient(145deg,#ffd1e3,#fff);
+    font-size:55px;
+}
+
+.front small{
+    font-size:14px;
+    color:#9b4b6c;
+    margin-top:8px;
+}
+
+.back{
+    background:white;
+    color:#75465b;
+    transform:rotateY(180deg);
+    font-size:14px;
+    line-height:1.5;
+}
+
+.hide{
+    display:none;
+}
+
+
+/* 9 */
+#s9{
+    background:linear-gradient(135deg,#ffd8e8,#fff5f9);
+}
+
+.heart{
+    font-size:90px;
+    animation:heart 1.2s infinite;
+}
+
+@keyframes heart{
+    50%{transform:scale(1.18)}
+}
+
+
+/* 10 */
+#s10{
+    background:linear-gradient(135deg,#ffe0eb,#fff7fa);
+    flex-direction:column;
+    overflow-y:auto;
+}
+
+.letter{
+    width:min(650px,92vw);
+    background:#fffaf0;
+    padding:38px;
+    border-radius:8px;
+    box-shadow:0 20px 60px #00000025;
+    text-align:left;
+}
+
+.letterIcon{
+    text-align:center;
+    font-size:35px;
+}
+
+.letter h2{
+    font-family:cursive;
+    font-size:32px;
+    margin:12px 0;
+}
+
+.letter p{
+    font-family:cursive;
+    font-size:18px;
+    min-height:250px;
+    white-space:pre-line;
+}
+
+.sign{
+    text-align:right;
+    font-family:cursive;
+    color:#a95170;
+    line-height:1.6;
+}
+
+
+/* phone */
+
+@media(max-width:600px){
+
+    .balloons{
+        font-size:42px;
+    }
+
+    .floor{
+        font-size:65px;
+    }
+
+    .bigcake{
+        font-size:120px;
+    }
+
+    .cat{
+        font-size:110px;
+    }
+
+    .wishcard{
+        width:160px;
+        height:200px;
+    }
+
+    .front,
+    .back{
+        width:160px;
+        height:200px;
+        padding:18px;
+    }
+
+    .front{
+        font-size:45px;
+    }
+
+    .back{
+        font-size:15px;
+        line-height:1.5;
+    }
+
+    .letter{
+        padding:25px 20px;
+    }
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- SCENE 1 -->
+<section class="scene active" id="s1">
+
+    <div>
+        <p>A little surprise for you ✨</p>
+
+        <h1>Have a look at it 👀</h1>
+
+        <p>There is something waiting for you...</p>
+
+        <button onclick="nextScene()">
+            Open the surprise 💌
+        </button>
+    </div>
+
+</section>
+
+
+<!-- SCENE 2 -->
+<section class="scene" id="s2">
+
+    <div class="moon">☾</div>
+
+    <div>
+        <h2>The room is dark... 🌙</h2>
+
+        <p>
+            Maybe we should set the mood first?
+        </p>
+
+        <button onclick="nextScene()">
+            Set the mood ✨
+        </button>
+    </div>
+
+</section>
+
+
+<!-- SCENE 3 -->
+<section class="scene" id="s3">
+
+    <div class="banner">
+        HAPPY BIRTHDAY ✨
+    </div>
+
+    <div class="balloons">
+        🎈　🎈　🎈　🎈　🎈
+    </div>
+
+    <div class="floor">
+        🎂
+    </div>
+
+    <div>
+        <h2>Let's decorate! 🎀</h2>
+
+        <p>
+            Making the room a little prettier for you...
+        </p>
+
+        <button onclick="nextScene()">
+            Looks cute! 💕
+        </button>
+    </div>
+
+</section>
+
+
+<!-- SCENE 4 -->
+<section class="scene" id="s4">
+
+    <div class="card">
+
+        <div class="cake">🎂</div>
+
+        <h1>Happy Birthday, Didi! 💗</h1>
+
+        <p>
+            You deserve all the happiness, smiles
+            and love in the world.
+        </p>
+
+        <div class="popmsg">
+            Today is all about YOU! 🥹💕
+        </div>
+
+        <br><br>
+
+        <button onclick="nextScene()">
+            Continue ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 5 -->
+<section class="scene" id="s5">
+
+    <div>
+
+        <h2>It's time to cut the cake! 🎂</h2>
+
+        <p>Click the cake...</p>
+
+        <div
+            class="bigcake"
+            id="cake"
+            onclick="cutCake()"
+        >
+            🍰
+        </div>
+
+        <span id="cutmsg"></span>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 6 -->
+<section class="scene" id="s6">
+
+    <div>
+
+        <div class="sparkle">✨</div>
+
+        <h2>Close your eyes...</h2>
+
+        <p>
+            Take a deep breath, make a wish,
+            <br>
+            and keep it close to your heart. 🤍
+        </p>
+
+        <button onclick="nextScene()">
+            Wish made ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 7 -->
+<section class="scene" id="s7">
+
+    <div class="kitty">
+
+        <div class="cat">🐱</div>
+
+        <div class="gift">🎁</div>
+
+        <h2>One last little surprise...</h2>
+
+        <p>
+            Someone has been waiting to give this to you!
+        </p>
+
+        <button onclick="nextScene()">
+            Take the gift 💕
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 8 -->
+<section class="scene" id="s8">
+
+    <div class="cards">
+
+        <h2>A few little wishes for you 💌</h2>
+
+        <p>
+            Click every card and open your wishes.
+        </p>
+
+
+        <div class="grid">
+
+
+            <div class="wishcard" onclick="flipCard(this)">
+
+                <div class="inner">
+
+                    <div class="front">
+                        💗
+                        <small>For you</small>
+                    </div>
+
+                    <div class="back">
+                        May your days always be filled with little 
+                        reasons to smile, beautiful moments to remember,
+                         and people who make your heart happy. 🌷
+ 🌷
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="wishcard" onclick="flipCard(this)">
+
+                <div class="inner">
+
+                    <div class="front">
+                        ✨
+                        <small>A wish</small>
+                    </div>
+
+                    <div class="back">
+                       May every dream you quietly carry find its way
+                        to you, and may your heart always have the 
+                        courage to believe that beautiful things are 
+                        waiting for you. 🌙✨
+ 🌙
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="wishcard" onclick="flipCard(this)">
+
+                <div class="inner">
+
+                    <div class="front">
+                        🎀
+                        <small>A hug</small>
+                    </div>
+
+                    <div class="back">
+                        Whenever life feels heavy, remember how loved
+                         you are, and never forget that you have people
+                          who will always be there to cheer for you 
+                          and make you smile. 💗💗💗
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="wishcard" onclick="flipCard(this)">
+
+                <div class="inner">
+
+                    <div class="front">
+                        🌸
+                        <small>Always</small>
+                    </div>
+
+                    <div class="back">
+                        Keep being the wonderful person you are.
+                         Never lose that beautiful smile, your kind 
+                         heart, and the little spark that makes you
+                          so special. May you always have countless 
+                          reasons to smile. 🌸💗
+ 💕
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="allOpened"
+            class="hide"
+            onclick="nextScene()"
+        >
+            All wishes opened ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 9 -->
+<section class="scene" id="s9">
+
+    <div>
+
+        <div class="heart">💗</div>
+
+        <h1>All wishes cleared ✨</h1>
+
+        <p>
+            But there is one more thing
+            I want to tell you...
+        </p>
+
+        <button onclick="nextScene()">
+            Open my letter 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 10 -->
+<section class="scene" id="s10">
+
+    <div class="letter">
+
+        <div class="letterIcon">💌</div>
+
+        <h2>Dear Didi,</h2>
+
+        <p id="typed"></p>
+
+        <div class="sign">
+            With lots and lots of love,<br>
+            <b>Your little sister ❤️</b>
+        </div>
+
+    </div>
+
+    <br>
+
+    <button onclick="location.reload()">
+        ↻ Start again
+    </button>
+
+</section>
+
+
+
+<script>
+
+let current = 1;
+
+let opened = 0;
+
+
+/* NEXT SCENE */
+
+function nextScene(){
+
+    document
+        .getElementById("s" + current)
+        .classList.remove("active");
+
+    current++;
+
+    document
+        .getElementById("s" + current)
+        .classList.add("active");
+
+
+    if(current === 10){
+        typeLetter();
+    }
+}
+
+
+/* CUT CAKE */
+
+function cutCake(){
+
+    const cake =
+        document.getElementById("cake");
+
+    cake.classList.add("cut");
+
+    document.getElementById("cutmsg").innerHTML =
+        "Yayyy! Cake cut! 🎉🍰";
+
+    setTimeout(function(){
+
+        nextScene();
+
+    },1500);
+}
+
+
+/* FLIP CARDS */
+
+function flipCard(card){
+
+    if(!card.classList.contains("flipped")){
+
+        card.classList.add("flipped");
+
+        opened++;
+
+        if(opened === 4){
+
+            document
+                .getElementById("allOpened")
+                .classList.remove("hide");
+
+        }
+    }
+}
+
+
+/* LETTER */
+
+function typeLetter(){
+
+    const text =
+`I just wanted to make a tiny little surprise for your birthday, because you deserve more than just a simple "Happy Birthday" message.
+
+Thank you for being my Didi, for all the little memories, the laughs, the advice, and for always being a special part of my life.
+
+I hope this new year brings you beautiful moments, peaceful days, big smiles and everything your heart wishes for.
+
+No matter how much we grow up, you will always be my Didi.
+
+Happy Birthday once again! 🎂💗
+
+Love you always.`;
+
+    const element =
+        document.getElementById("typed");
+
+    element.innerHTML = "";
+
+    let i = 0;
+
+    const typing = setInterval(function(){
+
+        element.innerHTML += text.charAt(i);
+
+        i++;
+
+        if(i >= text.length){
+
+            clearInterval(typing);
+
+        }
+
+    },25);
+}
+
+</script>
+
+</body>
+</html>
+

@@ -431,44 +431,83 @@ button:hover{
         font-size:60px;
     }
 
-    /* WISH CARDS */
+    /* WISH CARDS - MOBILE */
     #s8{
         overflow-y:auto;
-        padding-top:35px;
-        padding-bottom:40px;
+        overflow-x:hidden;
+        padding:30px 10px 45px;
+        align-items:flex-start;
     }
 
     .cardArea{
         width:100%;
+        max-width:380px;
+        padding-top:10px;
+    }
+
+    .cardArea h2{
+        font-size:30px;
+        line-height:1.2;
+    }
+
+    .cardArea > p{
+        font-size:16px;
+        margin-bottom:20px;
+    }
+
+    .grid{
+        width:100%;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        margin:20px 0 25px;
     }
 
     .wishcard{
-        width:160px;
-        height:300px;
+        width:100%;
+        height:260px;
+        perspective:1000px;
+    }
+
+    .inner{
+        width:100%;
+        height:100%;
     }
 
     .front,
     .back{
         width:100%;
         height:100%;
-        padding:18px;
+        padding:14px;
+        border-radius:20px;
+        overflow:hidden;
+        box-sizing:border-box;
     }
 
     .front{
-        font-size:45px;
+        font-size:42px;
     }
 
     .front small{
         font-size:13px;
+        margin-top:7px;
     }
 
     .back{
-        font-size:15px !important;
-        line-height:1.45;
+        font-size:14px !important;
+        line-height:1.4;
         text-align:center;
+        overflow-wrap:break-word;
+        word-break:normal;
     }
 
+    #allOpened{
+        margin-bottom:20px;
+    }
+
+    /* LETTER */
     .letter{
+        width:92vw;
         padding:25px 20px;
     }
 
